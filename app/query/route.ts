@@ -2,6 +2,8 @@ import { db } from "@vercel/postgres";
 
 const client = await db.connect();
 
+export const runtime = 'edge';
+
 async function listUser() {
   const data = await client.sql`
     SELECT * FROM "User" WHERE email = 'tu@gmail.com';
